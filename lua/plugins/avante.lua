@@ -2,6 +2,11 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   opts = {
+    -- provider = "copilot",
+    -- auto_suggestions_provider = "copilot",
+    -- copilot = {
+    --   model = "claude-3.5-sonnet",
+    -- },
     provider = "claude",
     windows = {
       width = 40,
