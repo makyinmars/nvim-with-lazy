@@ -7,35 +7,18 @@ return {
     -- copilot = {
     --   model = "claude-3.5-sonnet",
     -- },
-    provider = "claude",
+    provider = "ollama",
     windows = {
       width = 40,
     },
     vendors = {
       ---@type AvanteProvider
+      ---provider = "ollama",
       ollama = {
-        ["local"] = true,
-        endpoint = "127.0.0.1:11434/v1",
-        model = "llama3.1",
-        parse_curl_args = function(opts, code_opts)
-          return {
-            url = opts.endpoint .. "/chat/completions",
-            headers = {
-              ["Accept"] = "application/json",
-              ["Content-Type"] = "application/json",
-            },
-            body = {
-              model = opts.model,
-              messages = require("avante.providers").copilot.parse_message(code_opts), -- you can make your own message, but this is very advanced
-              max_tokens = 8192,
-              temperature = 0,
-              stream = true,
-            },
-          }
-        end,
-        parse_response_data = function(data_stream, event_state, opts)
-          require("avante.providers").openai.parse_response(data_stream, event_state, opts)
-        end,
+        __inherited_from = "openai",
+        api_key_name = "",
+        endpoint = "http://127.0.0.1:11434/v1",
+        model = "qwen2.5-coder:32b",
       },
       ---@type AvanteProvider
       deepseek = {
