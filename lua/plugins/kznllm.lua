@@ -1,86 +1,98 @@
 return {
   "makyinmars/kznllm.nvim",
-  -- dev = true,
-  -- dir = "$HOME/Development/OpenSource/kznllm.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = {
+    { "j-hui/fidget.nvim", "stevearc/dressing.nvim" },
+  },
   config = function(self)
     local presets = require("kznllm.presets")
     local Path = require("plenary.path")
 
-    -- falls back to `vim.fn.stdpath 'data' .. '/lazy/kznllm/templates'` when the plugin is not locally installed
+    -- Configuration constants
     local TEMPLATE_DIRECTORY = Path:new(vim.fn.expand(self.dir) .. "/templates")
-
-    -- edit this to change the selected preset (or just fork the repo and add your own)
     local SELECTED_PRESET = presets[3] -- Anthropic by default
     local spec = require(("kznllm.specs.%s"):format(SELECTED_PRESET.provider))
 
+    -- Preset switching function
     local function switch_presets()
-      vim.ui.select(presets, {
-        format_item = function(item)
-          local options = {}
-          for k, v in pairs(item.opts.data_params or {}) do
-            if type(v) == "number" then
-              local k_parts = {}
-              local k_split = vim.split(k, "_")
-              for i, term in ipairs(k_split) do
-                if i > 1 then
-                  table.insert(k_parts, term:sub(0, 3))
-                else
-                  table.insert(k_parts, term:sub(0, 4))
-                end
-              end
-              table.insert(options, ("%-5s %-5s"):format(table.concat(k_parts, "_"), v))
+      local function format_preset_item(item)
+        local options = {}
+        for k, v in pairs(item.opts.data_params or {}) do
+          if type(v) == "number" then
+            local k_parts = {}
+            local k_split = vim.split(k, "_")
+            for i, term in ipairs(k_split) do
+              table.insert(k_parts, i > 1 and term:sub(0, 3) or term:sub(0, 4))
             end
+            table.insert(options, ("%-5s %-5s"):format(table.concat(k_parts, "_"), v))
           end
-          table.sort(options)
-          return ("%-20s %10s | %s"):format(item.id, item.provider, table.concat(options, " "))
-        end,
-      }, function(choice)
-        if not choice then
-          return
         end
-        spec = require(("kznllm.specs.%s"):format(choice.provider))
-        SELECTED_PRESET = choice
-        print(("%-15s provider: %-10s"):format(choice.id, choice.provider))
+        table.sort(options)
+        return ("%-20s %10s | %s"):format(item.id, item.provider, table.concat(options, " "))
+      end
+
+      vim.ui.select(presets, {
+        format_item = format_preset_item,
+      }, function(choice)
+        if choice then
+          spec = require(("kznllm.specs.%s"):format(choice.provider))
+          SELECTED_PRESET = choice
+          print(("%-15s provider: %-10s"):format(choice.id, choice.provider))
+        end
       end)
     end
 
-    vim.keymap.set({ "n", "v" }, "<leader>kdm", switch_presets, { desc = "switch between presets" })
-
-    local function llm_fill()
+    -- Common LLM invocation function
+    local function invoke_llm_with_options(options)
       presets.invoke_llm(
         SELECTED_PRESET.make_data_fn,
         spec.make_curl_args,
         spec.make_job,
-        vim.tbl_extend("keep", SELECTED_PRESET.opts, {
-          template_directory = TEMPLATE_DIRECTORY,
-        })
+        vim.tbl_extend(
+          "keep",
+          SELECTED_PRESET.opts,
+          vim.tbl_extend("force", {
+            template_directory = TEMPLATE_DIRECTORY,
+          }, options or {})
+        )
       )
     end
 
-    vim.keymap.set({ "n", "v" }, "<leader>kdb", llm_fill, { desc = "Send current selection to LLM llm_fill" })
+    -- Keymapping setup
+    local function setup_keymaps()
+      local mappings = {
+        { { "n", "v" }, "<leader>kdm", switch_presets, { desc = "switch between presets" } },
+        {
+          { "n", "v" },
+          "<leader>kdb",
+          function()
+            invoke_llm_with_options()
+          end,
+          { desc = "Send current selection to LLM llm_fill" },
+        },
+        {
+          { "n", "v" },
+          "<leader>kdd",
+          function()
+            invoke_llm_with_options({ debug = true })
+          end,
+          { desc = "Send current selection to LLM debug" },
+        },
+      }
 
-    -- optional for debugging purposes
-    local function debug()
-      presets.invoke_llm(
-        SELECTED_PRESET.make_data_fn,
-        spec.make_curl_args,
-        spec.make_job,
-        vim.tbl_extend("keep", SELECTED_PRESET.opts, {
-          template_directory = TEMPLATE_DIRECTORY,
-          debug = true,
-        })
-      )
+      for _, mapping in ipairs(mappings) do
+        vim.keymap.set(mapping[1], mapping[2], mapping[3], mapping[4])
+      end
+
+      vim.api.nvim_set_keymap("n", "<Esc>", "", {
+        noremap = true,
+        silent = true,
+        callback = function()
+          vim.api.nvim_exec_autocmds("User", { pattern = "LLM_Escape" })
+        end,
+      })
     end
 
-    vim.keymap.set({ "n", "v" }, "<leader>kdd", debug, { desc = "Send current selection to LLM debug" })
-
-    vim.api.nvim_set_keymap("n", "<Esc>", "", {
-      noremap = true,
-      silent = true,
-      callback = function()
-        vim.api.nvim_exec_autocmds("User", { pattern = "LLM_Escape" })
-      end,
-    })
+    -- Initialize keymaps
+    setup_keymaps()
   end,
 }
