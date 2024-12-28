@@ -1,7 +1,7 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.ai.supermaven",
-    "lazyvim.plugins.extras.editor.fzf"
+    "lazyvim.plugins.extras.coding.nvim-cmp",
+    "lazyvim.plugins.extras.editor.telescope"
   ],
   "news": {
     "NEWS.md": "10960"
