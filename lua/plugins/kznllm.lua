@@ -12,7 +12,7 @@ return {
     end
 
     -- Helper function to invoke presets with options
-    local function invoke_with_opts(opts)
+    local function invoke_preset_with_options(opts)
       return function()
         local preset = presets.load_selected_preset(presets.options)
         preset.invoke(opts)
@@ -20,21 +20,21 @@ return {
     end
 
     -- Keymaps for switching presets and invoking LLM
-    create_keymap({ "n", "v" }, "<leader>kdm", function()
+    create_keymap({ "n", "v" }, "<leader>kkdm", function()
       presets.switch_presets(presets.options)
     end, "Switch between presets")
 
     create_keymap(
       { "n", "v" },
-      "<leader>kdd",
-      invoke_with_opts({ debug = true }),
-      "Send current selection to LLM debug"
+      "<leader>kkdd",
+      invoke_preset_with_options({ debug = true }),
+      "Send current selection to LLM for debugging"
     )
     create_keymap(
       { "n", "v" },
-      "<leader>kdb",
-      invoke_with_opts({ debug = false }),
-      "Send current selection to LLM Fill"
+      "<leader>kkdb",
+      invoke_preset_with_options({ debug = false }),
+      "Send current selection to LLM for code completion"
     )
 
     -- Escape keymap with autocmd

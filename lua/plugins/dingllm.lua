@@ -36,6 +36,15 @@ return {
           handle_data = dingllm.handle_openai_spec_data,
         },
       },
+      cerebras = {
+        url = "https://api.cerebras.ai/v1/chat/completions",
+        model = "llama-3.3-70b",
+        api_key = "CEREBRAS_API_KEY",
+        spec = {
+          make_args = dingllm.make_openai_spec_curl_args,
+          handle_data = dingllm.handle_openai_spec_data,
+        },
+      },
       anthropic = {
         url = "https://api.anthropic.com/v1/messages",
         model = "claude-3-5-sonnet-20241022",
@@ -77,6 +86,8 @@ return {
     local keymaps = {
       { mode = { "n", "v" }, key = "<leader>kxdd", provider = "deepseek", type = "replace", desc = "LLM Deepseek" },
       { mode = { "n", "v" }, key = "<leader>kxdh", provider = "deepseek", type = "help", desc = "LLM Deepseek help" },
+      { mode = { "n", "v" }, key = "<leader>kxcb", provider = "cerebras", type = "replace", desc = "LLM Cerebras" },
+      { mode = { "n", "v" }, key = "<leader>kxcd", provider = "cerebras", type = "help", desc = "LLM Cerebras help" },
       { mode = { "n", "v" }, key = "<leader>kxgb", provider = "groq", type = "replace", desc = "LLM Groq" },
       { mode = { "n", "v" }, key = "<leader>kxgd", provider = "groq", type = "help", desc = "LLM Groq help" },
       { mode = { "n", "v" }, key = "<leader>kxab", provider = "anthropic", type = "replace", desc = "LLM Anthropic" },

@@ -7,7 +7,7 @@ return {
     -- copilot = {
     --   model = "claude-3.5-sonnet",
     -- },
-    provider = "deepseek",
+    provider = "claude",
     windows = {
       width = 40,
     },
