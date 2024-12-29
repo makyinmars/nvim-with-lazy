@@ -20,19 +20,19 @@ return {
     end
 
     -- Keymaps for switching presets and invoking LLM
-    create_keymap({ "n", "v" }, "<leader>kkdm", function()
+    create_keymap({ "n", "v" }, "<leader>kdm", function()
       presets.switch_presets(presets.options)
     end, "Switch between presets")
 
     create_keymap(
       { "n", "v" },
-      "<leader>kkdd",
+      "<leader>kdd",
       invoke_preset_with_options({ debug = true }),
       "Send current selection to LLM for debugging"
     )
     create_keymap(
       { "n", "v" },
-      "<leader>kkdb",
+      "<leader>kdb",
       invoke_preset_with_options({ debug = false }),
       "Send current selection to LLM for code completion"
     )
