@@ -1,15 +1,12 @@
 return {
   "chottolabs/kznllm.nvim",
+  -- dev = true,
+  -- dir = os.getenv("HOME") .. "/Development/OpenSource/kznllm.nvim",
   dependencies = {
     { "j-hui/fidget.nvim" },
   },
   config = function(_)
     local presets = require("kznllm.presets.basic")
-
-    -- Helper function to create keymaps with common options
-    local function create_keymap(mode, lhs, rhs, desc)
-      vim.keymap.set(mode, lhs, rhs, { desc = desc })
-    end
 
     local function yap_generator()
       math.randomseed(os.time())
@@ -38,33 +35,30 @@ return {
       end
     end
 
-    -- Helper function to invoke presets with options
-    local function invoke_preset_with_options(opts)
+    vim.keymap.set({ "n", "v" }, "<leader>kdm", function()
+      presets.switch_presets(presets.options)
+    end, { desc = "switch between presets" })
+
+    local function invoke_with_opts(opts)
       return function()
         local preset = presets.load_selected_preset(presets.options)
         preset.invoke(opts)
       end
     end
 
-    -- Keymaps for switching presets and invoking LLM
-    create_keymap({ "n", "v" }, "<leader>kdm", function()
-      presets.switch_presets(presets.options)
-    end, "Switch between presets")
-
-    create_keymap(
-      { "n", "v" },
-      "<leader>kdd",
-      invoke_preset_with_options({ debug = true, progress_message_fn = progress_fn }),
-      "Send current selection to LLM debug"
-    )
-    create_keymap(
+    vim.keymap.set(
       { "n", "v" },
       "<leader>kdb",
-      invoke_preset_with_options({ debug = false, progress_message_fn = progress_fn }),
-      "Send current selection to LLM llm_fill"
+      invoke_with_opts({ debug = false, progress_message_fn = progress_fn }),
+      { desc = "Send current selection to LLM llm_fill" }
+    )
+    vim.keymap.set(
+      { "n", "v" },
+      "<leader>kdd",
+      invoke_with_opts({ debug = true, progress_message_fn = progress_fn }),
+      { desc = "Send current selection to LLM debug" }
     )
 
-    -- Escape keymap with autocmd
     vim.api.nvim_set_keymap("n", "<Esc>", "", {
       noremap = true,
       silent = true,
