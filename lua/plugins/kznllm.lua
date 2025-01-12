@@ -48,15 +48,15 @@ return {
 
     vim.keymap.set(
       { "n", "v" },
-      "<leader>kdb",
+      "<leader>kdd",
       invoke_with_opts({ debug = false, progress_message_fn = progress_fn }),
-      { desc = "Send current selection to LLM llm_fill" }
+      { desc = "Send current selection to LLM Fill" }
     )
     vim.keymap.set(
       { "n", "v" },
-      "<leader>kdd",
+      "<leader>kdh",
       invoke_with_opts({ debug = true, progress_message_fn = progress_fn }),
-      { desc = "Send current selection to LLM debug" }
+      { desc = "Send current selection to LLM Help" }
     )
 
     vim.api.nvim_set_keymap("n", "<Esc>", "", {

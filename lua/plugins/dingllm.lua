@@ -86,12 +86,12 @@ return {
     local keymaps = {
       { mode = { "n", "v" }, key = "<leader>kxdd", provider = "deepseek", type = "replace", desc = "LLM Deepseek" },
       { mode = { "n", "v" }, key = "<leader>kxdh", provider = "deepseek", type = "help", desc = "LLM Deepseek help" },
-      { mode = { "n", "v" }, key = "<leader>kxcb", provider = "cerebras", type = "replace", desc = "LLM Cerebras" },
-      { mode = { "n", "v" }, key = "<leader>kxcd", provider = "cerebras", type = "help", desc = "LLM Cerebras help" },
-      { mode = { "n", "v" }, key = "<leader>kxgb", provider = "groq", type = "replace", desc = "LLM Groq" },
-      { mode = { "n", "v" }, key = "<leader>kxgd", provider = "groq", type = "help", desc = "LLM Groq help" },
-      { mode = { "n", "v" }, key = "<leader>kxab", provider = "anthropic", type = "replace", desc = "LLM Anthropic" },
-      { mode = { "n", "v" }, key = "<leader>kxad", provider = "anthropic", type = "help", desc = "LLM Anthropic help" },
+      { mode = { "n", "v" }, key = "<leader>kxcd", provider = "cerebras", type = "replace", desc = "LLM Cerebras" },
+      { mode = { "n", "v" }, key = "<leader>kxch", provider = "cerebras", type = "help", desc = "LLM Cerebras help" },
+      { mode = { "n", "v" }, key = "<leader>kxgd", provider = "groq", type = "replace", desc = "LLM Groq" },
+      { mode = { "n", "v" }, key = "<leader>kxgh", provider = "groq", type = "help", desc = "LLM Groq help" },
+      { mode = { "n", "v" }, key = "<leader>kxad", provider = "anthropic", type = "replace", desc = "LLM Anthropic" },
+      { mode = { "n", "v" }, key = "<leader>kxah", provider = "anthropic", type = "help", desc = "LLM Anthropic help" },
     }
 
     -- Create and register all LLM functions
