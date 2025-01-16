@@ -4,7 +4,7 @@ return {
   lazy = false,
   opts = {
     -- provider = "copilot",
-    -- auto_suggestions_provider = "copilot",
+    -- auto_suggestions_provider = "deepseek",
     -- copilot = {
     --   model = "claude-3.5-sonnet",
     -- },
