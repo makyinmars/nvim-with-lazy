@@ -24,7 +24,7 @@ return {
     --- Finally, avante will generate a response based on the prompt and the two reference outputs, with the default Provider as normal.
     ---Note: This is an experimental feature and may not work as expected.
     dual_boost = {
-      enabled = true,
+      enabled = false,
       first_provider = "deepseek",
       second_provider = "groq",
       prompt = "Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]",
