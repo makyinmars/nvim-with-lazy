@@ -8,7 +8,7 @@ return {
     -- copilot = {
     --   model = "claude-3.5-sonnet",
     -- },
-    provider = "claude",
+    provider = "deepseek_r1",
     windows = {
       width = 40,
     },
@@ -42,6 +42,14 @@ return {
         api_key_name = "DEEPSEEK_API_KEY",
         endpoint = "https://api.deepseek.com/beta",
         model = "deepseek-chat",
+        temperature = 0,
+        max_tokens = 8192,
+      },
+      deepseek_r1 = {
+        __inherited_from = "openai",
+        api_key_name = "DEEPSEEK_API_KEY",
+        endpoint = "https://api.deepseek.com/beta",
+        model = "deepseek-reasoner",
         temperature = 0,
         max_tokens = 8192,
       },
