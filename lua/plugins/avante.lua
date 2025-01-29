@@ -8,7 +8,7 @@ return {
     -- copilot = {
     --   model = "claude-3.5-sonnet",
     -- },
-    provider = "deepseek_r1",
+    provider = "groq",
     windows = {
       width = 40,
     },
@@ -57,13 +57,19 @@ return {
         __inherited_from = "openai",
         api_key_name = "GROQ_API_KEY",
         endpoint = "https://api.groq.com/openai/v1/",
-        model = "llama-3.1-70b-versatile",
+        model = "deepseek-r1-distill-llama-70b",
       },
       cerebras = {
         __inherited_from = "openai",
         api_key_name = "CEREBRAS_API_KEY",
         endpoint = "https://api.cerebras.ai/v1/",
         model = "llama-3.3-70b",
+      },
+      hyperbolic = {
+        __inherited_from = "openai",
+        api_key_name = "HYPERBOLIC_API_KEY",
+        endpoint = "https://api.hyperbolic.xyz/v1/",
+        model = "deepseek-ai/DeepSeek-R1",
       },
     },
   },
