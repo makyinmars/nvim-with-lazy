@@ -8,7 +8,7 @@ return {
     -- copilot = {
     --   model = "claude-3.5-sonnet",
     -- },
-    provider = "groq",
+    provider = "claude",
     windows = {
       width = 40,
     },
