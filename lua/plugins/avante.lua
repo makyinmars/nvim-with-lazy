@@ -2,33 +2,6 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = false,
-  keys = {
-    {
-      "<leader>ap",
-      function()
-        local providers = {
-          "claude", -- default provider from your config
-          "ollama", -- local LLM
-          "deepseek", -- DeepSeek Chat
-          "deepseek_r1", -- DeepSeek Reasoner
-          "groq", -- Groq API
-          "cerebras", -- Cerebras API
-          "hyperbolic", -- Hyperbolic API
-        }
-        vim.ui.select(providers, {
-          prompt = "Select AI Provider",
-          format_item = function(item)
-            return item
-          end,
-        }, function(choice)
-          if choice then
-            vim.cmd("AvanteSwitchProvider " .. choice)
-          end
-        end)
-      end,
-      desc = "Switch AI Provider",
-    },
-  },
   opts = {
     -- provider = "copilot",
     -- auto_suggestions_provider = "deepseek",
