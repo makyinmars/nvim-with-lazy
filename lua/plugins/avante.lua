@@ -9,6 +9,13 @@ return {
     --   model = "claude-3.5-sonnet",
     -- },
     provider = "claude",
+    -- ollama = {
+    --   model = "qwq",
+    -- },
+    cursor_applying_provider = "groq",
+    behavior = {
+      enable_cursor_applying_mode = true,
+    },
     windows = {
       width = 40,
     },
@@ -31,12 +38,6 @@ return {
       timeout = 60000, -- Timeout in milliseconds
     },
     vendors = {
-      ollama = {
-        __inherited_from = "openai",
-        api_key_name = "",
-        endpoint = "http://127.0.0.1:11434/v1",
-        model = "qwen2.5-coder:32b",
-      },
       deepseek = {
         __inherited_from = "openai",
         api_key_name = "DEEPSEEK_API_KEY",
@@ -57,7 +58,8 @@ return {
         __inherited_from = "openai",
         api_key_name = "GROQ_API_KEY",
         endpoint = "https://api.groq.com/openai/v1/",
-        model = "deepseek-r1-distill-llama-70b",
+        -- model = "deepseek-r1-distill-llama-70b",
+        model = "llama-3.3-70b-versatile",
       },
       cerebras = {
         __inherited_from = "openai",
