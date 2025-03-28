@@ -5,7 +5,7 @@ return {
   opts = {
     -- provider = "copilot",
     -- auto_suggestions_provider = "deepseek",
-    provider = "claude",
+    provider = "gemini",
     -- copilot = {
     --   model = "claude-3.5-sonnet",
     -- },
@@ -13,6 +13,13 @@ return {
     --   model = "qwq",
     -- },
     cursor_applying_provider = "groq",
+    gemini = {
+      model = "gemini-2.5-pro-exp-03-25", -- your desired model (or use gpt-4o, etc.)
+      timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+      temperature = 0,
+      max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+      --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+    },
     behavior = {
       enable_cursor_applying_mode = true,
     },
