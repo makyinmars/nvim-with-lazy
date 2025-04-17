@@ -5,21 +5,21 @@ return {
   opts = {
     -- provider = "copilot",
     -- auto_suggestions_provider = "deepseek",
-    provider = "gemini",
+    provider = "claude",
     copilot = {
       model = "claude-3.5-sonnet",
     },
     ollama = {
       model = "qwq",
     },
-    claude = {
-      endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-20241022",
-      timeout = 30000, -- Timeout in milliseconds
-      temperature = 0,
-      max_tokens = 4096,
-      disable_tools = true, -- disable tools!
-    },
+    -- claude = {
+    --   endpoint = "https://api.anthropic.com",
+    --   model = "claude-3-5-sonnet-20241022",
+    --   timeout = 30000, -- Timeout in milliseconds
+    --   temperature = 0,
+    --   max_tokens = 4096,
+    --   disable_tools = true, -- disable tools!
+    -- },
     cursor_applying_provider = "groq",
     gemini = {
       model = "gemini-2.5-pro-exp-03-25", -- your desired model (or use gpt-4o, etc.)
