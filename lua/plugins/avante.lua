@@ -5,7 +5,7 @@ return {
   opts = {
     -- provider = "copilot",
     -- auto_suggestions_provider = "deepseek",
-    provider = "gemini",
+    provider = "claude",
     copilot = {
       model = "claude-3.5-sonnet",
     },
