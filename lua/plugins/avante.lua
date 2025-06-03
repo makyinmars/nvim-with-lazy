@@ -6,28 +6,72 @@ return {
     -- provider = "copilot",
     -- auto_suggestions_provider = "deepseek",
     provider = "claude",
-    copilot = {
-      model = "claude-3.5-sonnet",
-    },
-    ollama = {
-      model = "qwq",
-    },
-    claude = {
-      endpoint = "https://api.anthropic.com",
-      model = "claude-sonnet-4-20250514",
-      timeout = 30000, -- Timeout in milliseconds
-      temperature = 0,
-      max_tokens = 4096,
-      disable_tools = false, -- disable tools!
+    providers = {
+      copilot = {
+        model = "claude-3.5-sonnet",
+      },
+      ollama = {
+        model = "qwq",
+      },
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-sonnet-4-20250514",
+        timeout = 30000, -- Timeout in milliseconds
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 4096,
+        },
+        disable_tools = false, -- disable tools!
+      },
+      gemini = {
+        model = "gemini-2.5-pro-exp-03-25 ", -- your desired model (or use gpt-4o, etc.)
+        timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+        temperature = 0,
+        max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+        --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+      },
+      deepseek = {
+        __inherited_from = "openai",
+        api_key_name = "deepseek_api_key",
+        endpoint = "https://api.deepseek.com/beta",
+        model = "deepseek-chat",
+
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 8192,
+        },
+      },
+      deepseek_r1 = {
+        __inherited_from = "openai",
+        api_key_name = "deepseek_api_key",
+        endpoint = "https://api.deepseek.com/beta",
+        model = "deepseek-reasoner",
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 8192,
+        },
+      },
+      groq = {
+        __inherited_from = "openai",
+        api_key_name = "groq_api_key",
+        endpoint = "https://api.groq.com/openai/v1/",
+        -- model = "deepseek-r1-distill-llama-70b",
+        model = "llama-3.3-70b-versatile",
+      },
+      cerebras = {
+        __inherited_from = "openai",
+        api_key_name = "cerebras_api_key",
+        endpoint = "https://api.cerebras.ai/v1/",
+        model = "llama-3.3-70b",
+      },
+      hyperbolic = {
+        __inherited_from = "openai",
+        api_key_name = "hyperbolic_api_key",
+        endpoint = "https://api.hyperbolic.xyz/v1/",
+        model = "deepseek-ai/deepseek-r1",
+      },
     },
     cursor_applying_provider = "groq",
-    gemini = {
-      model = "gemini-2.5-pro-exp-03-25 ", -- your desired model (or use gpt-4o, etc.)
-      timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-      temperature = 0,
-      max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-      --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-    },
     behavior = {
       enable_cursor_applying_mode = true,
     },
@@ -51,43 +95,6 @@ return {
       second_provider = "groq",
       prompt = "Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]",
       timeout = 60000, -- Timeout in milliseconds
-    },
-    vendors = {
-      deepseek = {
-        __inherited_from = "openai",
-        api_key_name = "DEEPSEEK_API_KEY",
-        endpoint = "https://api.deepseek.com/beta",
-        model = "deepseek-chat",
-        temperature = 0,
-        max_tokens = 8192,
-      },
-      deepseek_r1 = {
-        __inherited_from = "openai",
-        api_key_name = "DEEPSEEK_API_KEY",
-        endpoint = "https://api.deepseek.com/beta",
-        model = "deepseek-reasoner",
-        temperature = 0,
-        max_tokens = 8192,
-      },
-      groq = {
-        __inherited_from = "openai",
-        api_key_name = "GROQ_API_KEY",
-        endpoint = "https://api.groq.com/openai/v1/",
-        -- model = "deepseek-r1-distill-llama-70b",
-        model = "llama-3.3-70b-versatile",
-      },
-      cerebras = {
-        __inherited_from = "openai",
-        api_key_name = "CEREBRAS_API_KEY",
-        endpoint = "https://api.cerebras.ai/v1/",
-        model = "llama-3.3-70b",
-      },
-      hyperbolic = {
-        __inherited_from = "openai",
-        api_key_name = "HYPERBOLIC_API_KEY",
-        endpoint = "https://api.hyperbolic.xyz/v1/",
-        model = "deepseek-ai/DeepSeek-R1",
-      },
     },
   },
   build = "make",
