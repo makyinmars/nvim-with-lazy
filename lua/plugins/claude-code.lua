@@ -1,17 +1,23 @@
 return {
-  "greggh/claude-code.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim", -- Required for git operations
+  "coder/claudecode.nvim",
+  dependencies = { "folke/snacks.nvim" },
+  config = true,
+  keys = {
+    { "<leader>c", nil, desc = "Claude Code" },
+    { "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+    { "<leader>cf", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+    { "<leader>cr", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+    { "<leader>cC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+    { "<leader>cb", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
+    { "<leader>cs", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+    {
+      "<leader>cs",
+      "<cmd>ClaudeCodeTreeAdd<cr>",
+      desc = "Add file",
+      ft = { "NvimTree", "neo-tree", "oil" },
+    },
+    -- Diff management
+    { "<leader>ca", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+    { "<leader>cd", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
   },
-  config = function()
-    require("claude-code").setup({
-      window = {
-        split_ratio = 0.3, -- Percentage of screen for the terminal window (height for horizontal, width for vertical splits)
-        position = "vertical", -- Position of the window: "botright", "topleft", "vertical", "rightbelow vsplit", etc.
-        enter_insert = true, -- Whether to enter insert mode when opening Claude Code
-        hide_numbers = true, -- Hide line numbers in the terminal window
-        hide_signcolumn = true, -- Hide the sign column in the terminal window
-      },
-    })
-  end,
 }
