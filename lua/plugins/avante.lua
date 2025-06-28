@@ -46,10 +46,7 @@ return {
         api_key_name = "deepseek_api_key",
         endpoint = "https://api.deepseek.com/beta",
         model = "deepseek-reasoner",
-        extra_request_body = {
-          temperature = 0,
-          max_tokens = 8192,
-        },
+        extra_request_body = { temperature = 0, max_tokens = 8192 },
       },
       groq = {
         __inherited_from = "openai",
