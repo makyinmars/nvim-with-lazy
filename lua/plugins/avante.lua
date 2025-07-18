@@ -18,10 +18,9 @@ return {
         model = "claude-sonnet-4-20250514",
         timeout = 30000, -- Timeout in milliseconds
         extra_request_body = {
-          temperature = 0,
-          max_tokens = 4096,
+          temperature = 0.75,
+          max_tokens = 20480,
         },
-        disable_tools = false, -- disable tools!
       },
       gemini = {
         model = "gemini-2.5-pro-exp-03-25 ", -- your desired model (or use gpt-4o, etc.)
@@ -71,6 +70,7 @@ return {
     cursor_applying_provider = "groq",
     behavior = {
       enable_cursor_applying_mode = true,
+      enable_fastapply = true, -- Enable Fast Apply feature
     },
     windows = {
       width = 40,
