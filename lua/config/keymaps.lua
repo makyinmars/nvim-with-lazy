@@ -49,6 +49,12 @@ vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split Window Right", remap
 vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
+-- Code folding
+vim.keymap.set("n", "<leader>za", "za", { desc = "Toggle fold under cursor" })
+vim.keymap.set("n", "<leader>zc", "zM", { desc = "Close all folds" })
+vim.keymap.set("n", "<leader>zo", "zR", { desc = "Open all folds" })
+vim.keymap.set("v", "<leader>zf", "zf", { desc = "Create fold from selection" })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
