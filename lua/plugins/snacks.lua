@@ -47,12 +47,6 @@ return {
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
           { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-          {
-            icon = "󰠮 ",
-            key = "o",
-            desc = "Obsidian notes",
-            action = ":e ~/Development/Obsidian/Maky Software Inc/Notes/Daily Notes.md",
-          },
           { icon = "🚬", key = "t", desc = "Ghostty Config", action = ":e ~/.config/ghostty/config" },
           { icon = "🚀", key = "a", desc = "Aerospace Config", action = ":e ~/.config/aerospace/aerospace.toml" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
