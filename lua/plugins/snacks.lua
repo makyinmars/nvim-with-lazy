@@ -55,7 +55,7 @@ return {
       sections = {
         {
           section = "terminal",
-          cmd = "chafa ~/.config/nvim/assets/apple.gif --size 60x20 --stretch || echo '🍎 Welcome to Neovim!'",
+          cmd = "chafa ~/.config/nvim/assets/meh-user.png --size 40x35 || echo 'Welcome to Neovim!'",
           height = 20,
           padding = 1,
           ttl = 0, -- Cache forever since it's a static image
