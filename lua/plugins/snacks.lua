@@ -257,7 +257,7 @@ return {
       function()
         Snacks.picker.recent()
       end,
-      desc = '[S]earch Recent Files (".\" for repeat)',
+      desc = '[S]earch Recent Files ("." for repeat)',
     },
     {
       "<leader>/",
