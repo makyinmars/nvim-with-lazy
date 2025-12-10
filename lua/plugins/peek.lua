@@ -4,14 +4,14 @@ return {
   build = "deno task --quiet build:fast",
   keys = {
     {
-      "<leader>pee",
+      "<leader>xee",
       function()
         require("peek").open()
       end,
       desc = "[P]eek Mark[d]own Open",
     },
     {
-      "<leader>pec",
+      "<leader>xec",
       function()
         require("peek").close()
       end,
