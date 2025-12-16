@@ -9,11 +9,13 @@ This is a **LazyVim-based Neovim configuration** built on the lazy.nvim plugin m
 ## Essential Commands
 
 ### Formatting and Linting
+
 ```bash
 stylua .        # Format all Lua code (2 spaces, 120 char width)
 ```
 
 ### Development and Testing
+
 ```vim
 :checkhealth    # Comprehensive health diagnostics
 :Lazy           # Plugin manager interface
@@ -24,6 +26,7 @@ stylua .        # Format all Lua code (2 spaces, 120 char width)
 ## Architecture and Code Organization
 
 ### Directory Structure
+
 - **`init.lua`**: Entry point that requires `config.lazy`
 - **`lua/config/`**: Core Neovim configuration
   - `lazy.lua` - Plugin manager setup
@@ -35,7 +38,9 @@ stylua .        # Format all Lua code (2 spaces, 120 char width)
 - **`lazy-lock.json`**: Locked plugin versions
 
 ### Plugin Configuration Pattern
+
 All plugins in `lua/plugins/` follow this structure:
+
 ```lua
 return {
   "plugin/name",
@@ -50,6 +55,7 @@ return {
 ```
 
 ### LazyVim Integration
+
 - Base configuration imports `lazyvim.plugins`
 - Custom plugins in `lua/plugins/` override/extend LazyVim defaults
 - Enabled extras: nvim-cmp, telescope, python language support
@@ -67,18 +73,22 @@ return {
 ## Key Architectural Patterns
 
 ### Plugin Loading Strategy
+
 - LazyVim plugins are lazy-loaded by default
 - Custom plugins load during startup unless explicitly configured otherwise
 - Performance optimizations disable unnecessary runtime plugins
 
 ### Configuration Management
+
 - Each plugin configuration is self-contained in its own file
 - Shared settings go in `lua/config/`
 - Plugin-specific keybindings defined within plugin specs
 - Use `opts` table for simple configurations, `config` function for complex setup
 
 ### AI/LLM Integration
+
 This config includes multiple AI tools:
+
 - Avante.nvim for multi-provider AI assistance
 - Supermaven for AI code completion
 - Multiple LLM provider configurations with fallbacks
