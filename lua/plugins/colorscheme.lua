@@ -1,26 +1,39 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require("tokyonight").setup({
-      style = "night",
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
       terminal_colors = true,
-      styles = {
-        comments = { italic = true },
-        keywords = { italic = true },
-        functions = {},
-        variables = {},
-        sidebars = "dark",
-        floats = "dark",
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
       },
-      sidebars = { "qf", "help", "terminal", "packer" },
-      day_brightness = 0.3,
-      hide_inactive_statusline = false,
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_intend_guides = false,
+      inverse = true,
+      contrast = "hard",
       dim_inactive = false,
-      lualine_bold = false,
-    })
-
-    vim.cmd.colorscheme("tokyonight")
-  end,
+      transparent_mode = false,
+    },
+    config = function(_, opts)
+      require("gruvbox").setup(opts)
+      vim.o.background = "dark"
+    end,
+  },
 }
