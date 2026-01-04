@@ -1,37 +1,26 @@
 return {
-  "ellisonleao/gruvbox.nvim",
+  "folke/tokyonight.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    require("gruvbox").setup({
-      terminal_colors = true, -- add neovim terminal colors
-      undercurl = true,
-      underline = true,
-      bold = true,
-      italic = {
-        strings = true,
-        emphasis = true,
-        comments = true,
-        operators = false,
-        folds = true,
+    require("tokyonight").setup({
+      style = "night",
+      terminal_colors = true,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
+        sidebars = "dark",
+        floats = "dark",
       },
-      strikethrough = true,
-      invert_selection = false,
-      invert_signs = false,
-      invert_tabline = false,
-      invert_intend_guides = false,
-      inverse = true, -- invert background for search, diffs, statuslines and errors
-      contrast = "hard", -- can be "hard", "soft" or empty string
-      palette_overrides = {},
-      overrides = {},
+      sidebars = { "qf", "help", "terminal", "packer" },
+      day_brightness = 0.3,
+      hide_inactive_statusline = false,
       dim_inactive = false,
-      transparent_mode = false,
+      lualine_bold = false,
     })
 
-    -- Set background to dark
-    vim.o.background = "dark"
-
-    -- Apply the colorscheme
-    vim.cmd.colorscheme("gruvbox")
+    vim.cmd.colorscheme("tokyonight")
   end,
 }

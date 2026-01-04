@@ -92,6 +92,18 @@ return {
     -- Picker configuration (replaces telescope)
     picker = {
       enabled = true,
+      icons = {
+        git = {
+          modified = "M",
+          staged = "S",
+          added = "A",
+          deleted = "D",
+          renamed = "R",
+          untracked = "?",
+          ignored = "!",
+          unmerged = "U",
+        },
+      },
     },
   },
   keys = {
