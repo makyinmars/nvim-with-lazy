@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A0522D"/>
+      <stop offset="50%" style="stop-color:#8B4513"/>
+      <stop offset="100%" style="stop-color:#5D2E17"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5DEB3"/>
+      <stop offset="100%" style="stop-color:#D2B48C"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Clothing/Collar -->
+  <path d="M55 160 Q60 140 75 135 L125 135 Q140 140 145 160 L145 200 L55 200 Z" 
+        fill="#191970" stroke="#000" stroke-width="2"/>
+  <path d="M85 135 L100 150 L115 135" fill="none" stroke="#2a2a6e" stroke-width="3"/>
+  
+  <!-- Neck -->
+  <path d="M85 130 L85 140 L115 140 L115 130" fill="url(#skinGrad)" stroke="#000" stroke-width="1.5"/>
+  
+  <!-- Face -->
+  <ellipse cx="100" cy="95" rx="45" ry="50" fill="url(#skinGrad)" stroke="#000" stroke-width="2"/>
+  
+  <!-- Hair Back -->
+  <path d="M55 70 Q50 40 70 25 Q100 10 130 25 Q150 40 145 70 Q140 55 100 50 Q60 55 55 70" 
+        fill="url(#hairGrad)" stroke="#000" stroke-width="2"/>
+  
+  <!-- Hair Spikes -->
+  <path d="M60 65 Q55 45 65 35 Q70 50 75 55 Q68 55 60 65" fill="#8B4513" stroke="#000" stroke-width="1.5"/>
+  <path d="M75 50 Q70 30 85 20 Q82 40 85 48 Q80 45 75 50" fill="#A0522D" stroke="#000" stroke-width="1.5"/>
+  <path d="M90 45 Q88 22 100 15 Q98 35 100 42 Q95 40 90 45" fill="#8B4513" stroke="#000" stroke-width="1.5"/>
+  <path d="M105 42 Q108 18 120 15 Q115 35 112 45 Q108 42 105 42" fill="#A0522D" stroke="#000" stroke-width="1.5"/>
+  <path d="M120 48 Q125 25 138 30 Q130 45 125 52 Q122 48 120 48" fill="#8B4513" stroke="#000" stroke-width="1.5"/>
+  <path d="M132 58 Q140 40 148 45 Q142 58 138 65 Q135 60 132 58" fill="#5D2E17" stroke="#000" stroke-width="1.5"/>
+  
+  <!-- Side hair -->
+  <path d="M55 70 Q48 85 52 105 Q55 95 60 85 Q58 78 55 70" fill="#5D2E17" stroke="#000" stroke-width="1.5"/>
+  <path d="M145 70 Q152 85 148 105 Q145 95 140 85 Q142 78 145 70" fill="#5D2E17" stroke="#000" stroke-width="1.5"/>
+  
+  <!-- Eyebrows -->
+  <path d="M70 75 Q80 70 90 73" fill="none" stroke="#3D1E0F" stroke-width="4" stroke-linecap="round"/>
+  <path d="M110 73 Q120 70 130 75" fill="none" stroke="#3D1E0F" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="80" cy="88" rx="10" ry="6" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  <ellipse cx="120" cy="88" rx="10" ry="6" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  <circle cx="80" cy="88" r="5" fill="#4682B4"/>
+  <circle cx="120" cy="88" r="5" fill="#4682B4"/>
+  <circle cx="78" cy="86" r="2" fill="#fff"/>
+  <circle cx="118" cy="86" r="2" fill="#fff"/>
+  <circle cx="80" cy="88" r="2.5" fill="#000"/>
+  <circle cx="120" cy="88" r="2.5" fill="#000"/>
+  
+  <!-- Eye lines (tired look) -->
+  <path d="M68 83 L72 85" stroke="#000" stroke-width="2"/>
+  <path d="M128 85 L132 83" stroke="#000" stroke-width="2"/>
+  
+  <!-- Hatching under eyes -->
+  <g stroke="#8B7355" stroke-width="0.5" opacity="0.6">
+    <line x1="72" y1="95" x2="76" y2="93"/>
+    <line x1="74" y1="97" x2="78" y2="95"/>
+    <line x1="76" y1="99" x2="80" y2="97"/>
+    <line x1="122" y1="95" x2="126" y2="97"/>
+    <line x1="124" y1="93" x2="128" y2="95"/>
+    <line x1="120" y1="97" x2="124" y2="99"/>
+  </g>
+  
+  <!-- Nose -->
+  <path d="M100 90 L98 105 L100 108 L102 105" fill="none" stroke="#000" stroke-width="1.5"/>
+  
+  <!-- Mouth (meh expression) -->
+  <path d="M92 118 L108 118" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Bandage on left cheek -->
+  <rect x="62" y="100" width="12" height="8" rx="1" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+  <line x1="64" y1="104" x2="72" y2="104" stroke="#ddd" stroke-width="0.5"/>
+  
+  <!-- Bandage on chin -->
+  <rect x="108" y="122" width="6" height="10" rx="1" fill="#fff" stroke="#ccc" stroke-width="0.5"/>
+  <line x1="111" y1="124" x2="111" y2="130" stroke="#ddd" stroke-width="0.5"/>
+  
+  <!-- Front hair bangs -->
+  <path d="M65 65 Q70 75 68 85 Q72 75 78 68 Q75 60 65 65" fill="#8B4513" stroke="#000" stroke-width="1.5"/>
+  <path d="M78 60 Q85 72 82 82 Q88 70 92 62 Q88 55 78 60" fill="#A0522D" stroke="#000" stroke-width="1.5"/>
+  <path d="M130 68 Q125 78 128 85 Q124 75 118 70 Q122 62 130 68" fill="#5D2E17" stroke="#000" stroke-width="1.5"/>
+</svg>

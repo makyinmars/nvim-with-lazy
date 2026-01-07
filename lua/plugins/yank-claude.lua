@@ -1,5 +1,6 @@
 return {
   "wasabeef/yank-for-claude.nvim",
+  lazy = true,
   config = function()
     require("yank-for-claude").setup()
   end,

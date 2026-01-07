@@ -3,6 +3,10 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    -- Show dotfiles in explorer
+    explorer = {
+      hidden = true,
+    },
     -- Custom dashboard with image and personal shortcuts
     dashboard = {
       preset = {
@@ -29,8 +33,8 @@ return {
       sections = {
         {
           section = "terminal",
-          cmd = "chafa ~/.config/nvim/assets/meh-user.png --size 40x35 || echo 'Welcome to Neovim!'",
-          height = 20,
+          cmd = [[paste <(chafa ~/.config/nvim/assets/meh-user-optimized.png --format=symbols --size 35x17 --speed max 2>/dev/null) <(~/.config/nvim/assets/void.sh)]],
+          height = 17,
           padding = 1,
           ttl = 0,
         },
@@ -58,7 +62,19 @@ return {
   },
 
   keys = {
-    { "<leader>uz", function() Snacks.zen() end, desc = "Toggle Zen Mode" },
-    { "<leader>uZ", function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
+    {
+      "<leader>uz",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
+    },
+    {
+      "<leader>uZ",
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
+    },
   },
 }

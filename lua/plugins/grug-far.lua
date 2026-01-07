@@ -1,5 +1,6 @@
 return {
   "MagicDuck/grug-far.nvim",
+  cmd = "GrugFar",
   keys = {
     { "<leader>gr", ":GrugFar<CR>", desc = "Run Grug Far", noremap = true, silent = true },
   },
