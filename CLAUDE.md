@@ -90,7 +90,6 @@ return {
 This config includes multiple AI tools:
 
 - Avante.nvim for multi-provider AI assistance
-- Supermaven for AI code completion
 - Multiple LLM provider configurations with fallbacks
 
 ## Development Workflow
