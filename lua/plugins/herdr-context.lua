@@ -12,8 +12,64 @@ return {
       submit = false,
       focus_after_send = false,
       target_scope = "workspace",
+      composer = {
+        provider_timeout_ms = 1500,
+        hunk_context_lines = 3,
+        preview = true,
+      },
+      providers = {
+        symbol = {
+          enabled = true,
+          lsp = true,
+          treesitter_fallback = true,
+        },
+        hunk = {
+          enabled = true,
+          backends = { "mini_diff", "git" },
+        },
+        trouble = {
+          enabled = true,
+          modes = { "diagnostics", "quickfix" },
+        },
+      },
     },
     keys = {
+      {
+        "<leader>ac",
+        function()
+          require("herdr-context").compose()
+        end,
+        mode = { "n", "v" },
+        desc = "Compose Herdr Context",
+      },
+      {
+        "<leader>as",
+        function()
+          require("herdr-context").symbol()
+        end,
+        desc = "Stage Current Symbol to Herdr",
+      },
+      {
+        "<leader>ah",
+        function()
+          require("herdr-context").hunk()
+        end,
+        desc = "Stage Git Hunk to Herdr",
+      },
+      {
+        "<leader>aq",
+        function()
+          require("herdr-context").quickfix()
+        end,
+        desc = "Stage Quickfix List to Herdr",
+      },
+      {
+        "<leader>al",
+        function()
+          require("herdr-context").location_list()
+        end,
+        desc = "Stage Location List to Herdr",
+      },
       {
         "<leader>ay",
         function()
@@ -51,6 +107,13 @@ return {
           require("herdr-context").agents()
         end,
         desc = "Toggle Herdr Agents",
+      },
+      {
+        "<leader>aH",
+        function()
+          require("herdr-context").history()
+        end,
+        desc = "Toggle Herdr Context History",
       },
       {
         "<leader>ar",
