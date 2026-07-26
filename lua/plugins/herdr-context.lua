@@ -43,6 +43,14 @@ return {
         desc = "Compose Herdr Context",
       },
       {
+        "<leader>ap",
+        function()
+          require("herdr-context").prompt()
+        end,
+        mode = { "n", "v" },
+        desc = "Prompt Herdr with Code Context",
+      },
+      {
         "<leader>as",
         function()
           require("herdr-context").symbol()
