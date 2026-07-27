@@ -8,6 +8,7 @@ return {
     { "<leader>ms", "<cmd>MDEye split<cr>", desc = "Markdown document view in split" },
     { "<leader>mt", "<cmd>MDEye tab<cr>", desc = "Markdown document view in tab" },
     { "<leader>mq", "<cmd>MDEye close<cr>", desc = "Close Markdown document view" },
+    { "<leader>my", "<cmd>MDEye copy-code<cr>", desc = "Copy Markdown code block" },
   },
   opts = {},
 }
