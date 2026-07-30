@@ -10,5 +10,8 @@ return {
     { "<leader>mq", "<cmd>MDEye close<cr>", desc = "Close Markdown document view" },
     { "<leader>my", "<cmd>MDEye copy-code<cr>", desc = "Copy Markdown code block" },
   },
-  opts = {},
+  opts = {
+    open = "split",
+    max_width = 1000,
+  },
 }
