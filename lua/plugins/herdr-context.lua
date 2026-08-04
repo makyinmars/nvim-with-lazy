@@ -25,7 +25,7 @@ return {
         },
         hunk = {
           enabled = true,
-          backends = { "mini_diff", "git" },
+          backends = { "git" },
         },
         trouble = {
           enabled = true,

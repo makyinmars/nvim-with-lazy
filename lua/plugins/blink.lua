@@ -1,7 +1,7 @@
 -- Blink.cmp customizations (LazyVim handles most config via extras.coding.blink)
 return {
   "saghen/blink.cmp",
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdlineEnter" },
   opts = {
     completion = {
       documentation = {

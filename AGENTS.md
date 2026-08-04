@@ -25,7 +25,7 @@ This repository is a LazyVim-based Neovim configuration.
 - Language: Lua.
 - Indentation: 2 spaces; line length: 120 (`stylua.toml`).
 - Use `require("module.path")` imports and keep config modular.
-- Plugin files in `lua/plugins/` use kebab-case names (for example, `rust-analyzer.lua`).
+- Plugin files in `lua/plugins/` use kebab-case names (for example, `yank-claude.lua`).
 - Use `snake_case` for local identifiers.
 - Plugin specs should return Lua tables and include `desc` for keymaps.
 - Prefer `pcall(...)` for optional dependencies/features.
@@ -35,8 +35,10 @@ This repository is a LazyVim-based Neovim configuration.
 There is no unit-test suite in this repo. Validate changes with:
 
 1. `stylua .`
-2. `nvim --headless "+checkhealth" +qa`
-3. Manual verification in Neovim for the affected plugin/keymap/workflow.
+2. `stylua --check .`
+3. `nvim --headless "+checkhealth" +qa`
+4. `git diff --check`
+5. Manual verification in Neovim for the affected plugin/keymap/workflow.
 
 When changing plugin behavior, test startup and the exact command/key path you touched.
 
