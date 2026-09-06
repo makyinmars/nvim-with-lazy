@@ -6,7 +6,7 @@ A personal [LazyVim](https://www.lazyvim.org/)-based Neovim setup focused on Typ
 
 - **Completion:** Blink with snippets, signature help, and Supermaven suggestions
 - **Navigation and editing:** Snacks picker/explorer, Flash, Spider subword motions, TreeSJ, Mini Surround, Mini Move, and Yanky
-- **Code intelligence:** LSP support for TypeScript (`tsgo`), Python, JSON, Markdown, TOML, and shell/dotfiles
+- **Code intelligence:** LSP support for TypeScript 7 (`tsc`), Python, JSON, Markdown, TOML, and shell/dotfiles
 - **Refactoring:** incremental rename, Tree-sitter refactors, and code-action indicators
 - **Git:** Gitsigns for hunks and blame, plus CodeDiff for repository diffs and history
 - **Debugging:** DAP with UI, virtual text, and Python/JavaScript adapters
@@ -21,6 +21,7 @@ A personal [LazyVim](https://www.lazyvim.org/)-based Neovim setup focused on Typ
 - A Nerd Font
 - `chafa` for the dashboard image
 - Language runtimes and tools for the projects you edit; Mason manages most editor tooling
+- Mason installs TypeScript 7 (`tsc`) for its native language server. Project-local TypeScript 7+ takes priority; older compilers fall back to Mason's version.
 
 Optional integrations:
 
