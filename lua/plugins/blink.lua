@@ -14,6 +14,15 @@ return {
           enabled = vim.g.ai_cmp,
         },
       },
+      sources = {
+        providers = {
+          buffer = {
+            enabled = function()
+              return vim.bo.filetype == "markdown" or vim.bo.filetype == "text"
+            end,
+          },
+        },
+      },
       -- Blink owns signature help; Noice still handles hover and messages.
       signature = { enabled = true },
     },
