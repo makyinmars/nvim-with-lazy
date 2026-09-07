@@ -16,7 +16,8 @@ This repository is a LazyVim-based Neovim configuration.
 
 - `nvim`: launch Neovim with this config.
 - `stylua .`: format all Lua files (2 spaces, 120-column width).
-- `nvim --headless "+Lazy! sync" +qa`: sync plugins from the lockfile/specs.
+- `nvim --headless "+Lazy! restore" +qa`: restore plugins to the lockfile versions.
+- `nvim --headless "+Lazy! sync" +qa`: install, remove, and update plugins; refreshes the lockfile.
 - `nvim --headless "+checkhealth" +qa`: run health checks in CI-friendly mode.
 - Inside Neovim: `:Lazy` (plugin UI), `:LazyExtras` (extras management), `:checkhealth` (diagnostics).
 

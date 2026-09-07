@@ -4,9 +4,10 @@ A personal [LazyVim](https://www.lazyvim.org/)-based Neovim setup focused on Typ
 
 ## Highlights
 
-- **Completion:** Blink with snippets, signature help, and Supermaven suggestions
+- **Completion:** Blink with snippets and signature help; Noice handles hover, messages, and the command line
 - **Navigation and editing:** Snacks picker/explorer, Flash, Spider subword motions, TreeSJ, Mini Surround, Mini Move, and Yanky
 - **Code intelligence:** LSP support for TypeScript 7 (`tsc`), Python, JSON, Markdown, TOML, and shell/dotfiles
+- **Code quality:** project-local Oxlint and Oxfmt in OXC projects, with Biome and ESLint available for other projects
 - **Refactoring:** incremental rename, Tree-sitter refactors, and code-action indicators
 - **Git:** Gitsigns for hunks and blame, plus CodeDiff for repository diffs and history
 - **Debugging:** DAP with UI, virtual text, and Python/JavaScript adapters
@@ -27,15 +28,16 @@ Optional integrations:
 
 - Set `HERDR_ENV=1` when running inside Herdr to enable `herdr-context.nvim`.
 - Set `YOUTUBE_API_KEY` to use the YouTube Music provider in Jam.
-- The local plugins expect these directories to exist:
+- Local plugins are enabled only when their directories exist:
   - `~/Development/NVIM/amp-orbs.nvim`
   - `~/Development/NVIM/jam.nvim`
+  - `~/Development/NVIM/herdr-context.nvim` (also requires `HERDR_ENV=1`)
 
 ## Installation
 
 ```sh
 git clone <repository-url> ~/.config/nvim
-nvim --headless "+Lazy! sync" +qa
+nvim --headless "+Lazy! restore" +qa
 ```
 
 Then launch Neovim normally:
@@ -54,6 +56,7 @@ nvim
 | `w`, `e`, `b`, `ge` | Move by subword with Spider |
 | `<leader>cj` | Split or join the code block under the cursor |
 | `<leader>cJ` | Recursively split or join a code block |
+| `<leader>zf` | Create a fold from a visual selection; switches the current window to manual folding |
 | `<leader>cr` | Incremental LSP rename |
 | `<leader>sr` | Search and replace with Grug Far |
 | `<leader>gv` | Open CodeDiff for working-tree changes |
@@ -84,10 +87,13 @@ assets/              Dashboard image and helper script
 ```sh
 stylua .
 stylua --check .
-nvim --headless "+Lazy! sync" +qa
 nvim --headless "+checkhealth" +qa
 git diff --check
 ```
+
+Use `:Lazy restore` to restore pinned plugin versions. Use `:Lazy sync` when you intend to install, remove, and update plugins and refresh the lockfile.
+
+In OXC projects such as Cima, Oxfmt is the sole Conform formatter and Oxlint uses the repository's lint config. The Oxfmt language server and ESLint auto-formatting are disabled to avoid duplicate formatting. ESLint still provides diagnostics and code actions where configured. Outside configured Oxfmt projects, the existing formatter selection applies.
 
 Inside Neovim, use `:Lazy` for plugin management, `:Mason` for external editor tooling, and `:checkhealth` for diagnostics.
 

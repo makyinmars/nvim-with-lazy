@@ -1,27 +1,34 @@
 -- Blink.cmp customizations (LazyVim handles most config via extras.coding.blink)
 return {
-  "saghen/blink.cmp",
-  event = { "InsertEnter", "CmdlineEnter" },
-  opts = {
-    completion = {
-      documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 200,
+  {
+    "saghen/blink.cmp",
+    -- Initialize before the first InsertEnter so manual signature help is ready.
+    event = { "VeryLazy", "InsertEnter", "CmdlineEnter" },
+    opts = {
+      completion = {
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+        },
+        ghost_text = {
+          enabled = vim.g.ai_cmp,
+        },
       },
-      ghost_text = {
-        enabled = vim.g.ai_cmp,
-      },
+      -- Blink owns signature help; Noice still handles hover and messages.
+      signature = { enabled = true },
     },
-    -- Enable signature help
-    signature = { enabled = true },
-    -- Custom keymap overrides
-    keymap = {
-      preset = "enter",
-      ["<C-y>"] = { "select_and_accept" },
-      ["<C-n>"] = { "select_next" },
-      ["<C-p>"] = { "select_prev" },
-      ["<C-b>"] = { "scroll_documentation_up" },
-      ["<C-f>"] = { "scroll_documentation_down" },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        ["*"] = {
+          keys = {
+            -- Let Blink's preset handle this key instead of the built-in popup.
+            { "<c-k>", false, mode = "i", desc = "Signature Help" },
+          },
+        },
+      },
     },
   },
 }

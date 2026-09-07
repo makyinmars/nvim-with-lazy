@@ -11,3 +11,6 @@ end
 -- Snacks animations
 -- Set to `false` to globally disable all snacks animations
 vim.g.snacks_animate = false
+
+-- Dedicated formatters own formatting; ESLint still provides diagnostics and code actions.
+vim.g.lazyvim_eslint_auto_format = false

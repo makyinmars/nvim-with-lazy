@@ -3,10 +3,6 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    -- Show dotfiles in explorer
-    explorer = {
-      hidden = true,
-    },
     -- Custom dashboard with image and personal shortcuts
     dashboard = {
       preset = {
@@ -61,6 +57,9 @@ return {
 
     -- Picker icons customization
     picker = {
+      sources = {
+        explorer = { hidden = true },
+      },
       icons = {
         files = {
           enabled = true,

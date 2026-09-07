@@ -1,11 +1,10 @@
+local plugin_dir = vim.fn.expand("~/Development/NVIM/herdr-context.nvim")
+
 return {
   {
-    -- Production (uncomment this and comment out `dir` below):
-    -- "makyinmars/herdr-context.nvim",
-
-    -- Local development:
-    dir = "/Users/franklin/Development/NVIM/herdr-context.nvim",
+    dir = plugin_dir,
     name = "herdr-context.nvim",
+    enabled = vim.fn.isdirectory(plugin_dir) == 1,
     cond = vim.env.HERDR_ENV == "1",
     lazy = false,
     opts = {

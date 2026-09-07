@@ -1,10 +1,12 @@
+local plugin_dir = vim.fn.expand("~/Development/NVIM/jam.nvim")
+
 return {
-  dir = "/Users/franklin/Development/NVIM/jam.nvim",
+  dir = plugin_dir,
   name = "jam.nvim",
+  enabled = vim.fn.isdirectory(plugin_dir) == 1,
   dependencies = {
     "nvim-telescope/telescope.nvim",
-    "3rd/image.nvim",
-    opts = {},
+    { "3rd/image.nvim", opts = {} },
   },
   cmd = "Jam",
   keys = {
