@@ -13,7 +13,7 @@ A personal [LazyVim](https://www.lazyvim.org/)-based Neovim setup focused on Typ
 - **Debugging:** DAP with UI, virtual text, and Python/JavaScript adapters
 - **Markdown:** in-buffer rendering with `render-markdown.nvim` and document views with MDEye
 - **AI context:** Herdr integration and reference-aware yanks for coding agents
-- **Personal plugins:** Amp Orbs and Jam/YouTube Music integrations
+- **Personal plugins:** MDEye and the Jam/YouTube Music integration
 
 ## Requirements
 
@@ -29,7 +29,7 @@ Optional integrations:
 - Set `HERDR_ENV=1` when running inside Herdr to enable `herdr-context.nvim`.
 - Set `YOUTUBE_API_KEY` to use the YouTube Music provider in Jam.
 - Local plugins are enabled only when their directories exist:
-  - `~/Development/NVIM/amp-orbs.nvim`
+  - `~/Development/NVIM/mdeye.nvim`
   - `~/Development/NVIM/jam.nvim`
   - `~/Development/NVIM/herdr-context.nvim` (also requires `HERDR_ENV=1`)
 
@@ -69,7 +69,6 @@ nvim
 | `<leader>ay` | Stage an `@path#L…` reference without embedding code |
 | `<leader>aa` | Toggle the Herdr agent drawer |
 | `<leader>jm` | Search YouTube Music with Jam |
-| `<leader>ao` | View Amp Orbs |
 
 Inside the Herdr composer: `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` move between stacked panes; `1`–`9` pick a live agent; `<Space>` attaches or detaches a reference; `e` embeds that snippet; `s` stages and `S` / `<C-Enter>` send. Press `?` in the composer for the full key list.
 

@@ -1,5 +1,3 @@
-vim.g.have_nerd_font = true
-
 vim.keymap.set("i", "kj", "<ESC>", { desc = "Exit insert mode" })
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 

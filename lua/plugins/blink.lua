@@ -5,15 +5,6 @@ return {
     -- Initialize before the first InsertEnter so manual signature help is ready.
     event = { "VeryLazy", "InsertEnter", "CmdlineEnter" },
     opts = {
-      completion = {
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 200,
-        },
-        ghost_text = {
-          enabled = vim.g.ai_cmp,
-        },
-      },
       sources = {
         providers = {
           buffer = {
