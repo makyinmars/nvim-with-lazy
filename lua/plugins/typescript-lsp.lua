@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   opts = function(_, opts)
+    vim.list_extend(opts.inlay_hints.exclude, { "typescript", "typescriptreact" })
     opts.servers = opts.servers or {}
 
     -- LazyVim's TypeScript extra still defaults to vtsls; use the native TS 7 server.

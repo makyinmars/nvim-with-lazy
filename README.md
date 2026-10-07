@@ -64,10 +64,14 @@ nvim
 | `<leader>ghs` | Stage the current Git hunk |
 | `<leader>ghr` | Reset the current Git hunk |
 | `<leader>me` | Toggle the MDEye Markdown view |
-| `<leader>ac` | Compose Herdr context |
-| `<leader>ap` | Prompt Herdr with code context |
+| `<leader>ac` | Compose Herdr context (stacked agent / message / references / preview) |
+| `<leader>ap` | Prompt Herdr with the current line or Visual selection |
+| `<leader>ay` | Stage an `@path#L…` reference without embedding code |
+| `<leader>aa` | Toggle the Herdr agent drawer |
 | `<leader>jm` | Search YouTube Music with Jam |
 | `<leader>ao` | View Amp Orbs |
+
+Inside the Herdr composer: `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` move between stacked panes; `1`–`9` pick a live agent; `<Space>` attaches or detaches a reference; `e` embeds that snippet; `s` stages and `S` / `<C-Enter>` send. Press `?` in the composer for the full key list.
 
 Use `<leader>?` to inspect buffer-local mappings and `:LazyExtras` to review enabled LazyVim extras.
 

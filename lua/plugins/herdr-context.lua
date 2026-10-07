@@ -15,17 +15,24 @@ return {
       remember_target = "session",
       auto_select = true,
       herdr_bin = nil,
+      min_herdr_version = "0.9.1",
       multiline_strategy = "auto",
       bracketed_paste_agents = {
         claude = true,
         codex = true,
+        grok = true,
+        opencode = true,
       },
       context_file_dir = nil,
       composer = {
         layout = "float",
         width = 0.92,
         height = 0.8,
-        checklist_width = 0.38,
+        include = "reference",
+        hide_empty = true,
+        attach_empty_diagnostics = false,
+        agent_picker = "inline",
+        embed_unsaved = "ask",
         provider_timeout_ms = 1500,
         hunk_context_lines = 3,
         preview = true,
@@ -55,7 +62,16 @@ return {
           "token%s*[:=]%s*%S+",
           "secret%s*[:=]%s*%S+",
           "password%s*[:=]%s*%S+",
+          "gh[pousr]_%w+",
+          "github_pat_[%w_]+",
+          "xox[baprs]%-[%w%-]+",
+          '"type"%s*:%s*"service_account"',
+          "eyJ[%w_%-]+%.eyJ[%w_%-]+%.[%w_%-]+",
         },
+        entropy_enabled = true,
+        entropy_threshold = 4.5,
+        entropy_min_length = 20,
+        entropy_keywords = { "key", "secret", "token", "password", "credential" },
       },
       history = {
         enabled = true,
@@ -69,7 +85,7 @@ return {
         },
         hunk = {
           enabled = true,
-          backends = { "git" },
+          backends = { "mini_diff", "git" },
         },
         trouble = {
           enabled = true,
@@ -119,6 +135,7 @@ return {
       },
     },
     keys = {
+      { "<leader>a", desc = "+herdr", mode = { "n", "v" } },
       {
         "<leader>ac",
         function()
@@ -133,7 +150,7 @@ return {
           require("herdr-context").prompt()
         end,
         mode = { "n", "v" },
-        desc = "Prompt Herdr with Code Context",
+        desc = "Prompt Herdr with Line or Selection",
       },
       {
         "<leader>aD",
@@ -175,7 +192,7 @@ return {
           require("herdr-context").reference()
         end,
         mode = { "n", "v" },
-        desc = "Send Reference to Herdr Agent",
+        desc = "Stage @path#L Reference to Herdr",
       },
       {
         "<leader>aY",
@@ -183,7 +200,7 @@ return {
           require("herdr-context").send()
         end,
         mode = { "n", "v" },
-        desc = "Send Context to Herdr Agent",
+        desc = "Stage Reference and Code to Herdr",
       },
       {
         "<leader>ad",
@@ -191,14 +208,14 @@ return {
           require("herdr-context").diagnostics()
         end,
         mode = { "n", "v" },
-        desc = "Send Diagnostics to Herdr Agent",
+        desc = "Stage Diagnostics to Herdr",
       },
       {
         "<leader>at",
         function()
           require("herdr-context").select_target()
         end,
-        desc = "Select Herdr Agent",
+        desc = "Pick Herdr Target",
       },
       {
         "<leader>aa",
