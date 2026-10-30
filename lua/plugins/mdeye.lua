@@ -17,6 +17,7 @@ return {
     { "<leader>mq", "<cmd>MDEye close<cr>", desc = "Close Markdown document view" },
     { "<leader>my", "<cmd>MDEye copy-code<cr>", desc = "Copy Markdown code block" },
     { "<leader>mo", "<cmd>MDEye open-image<cr>", desc = "Open Mermaid diagram image" },
+    { "<leader>mz", "<cmd>MDEye zoom<cr>", desc = "Zoom and pan Markdown image" },
   },
   opts = {
     open = "split",

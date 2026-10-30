@@ -64,6 +64,7 @@ nvim
 | `<leader>ghs` | Stage the current Git hunk |
 | `<leader>ghr` | Reset the current Git hunk |
 | `<leader>me` | Toggle the MDEye Markdown view |
+| `<leader>mz` | Zoom and pan the image under the MDEye preview cursor (`gz` inside the preview) |
 | `<leader>ac` | Compose Herdr context (stacked agent / message / references / preview) |
 | `<leader>ap` | Prompt Herdr with the current line or Visual selection |
 | `<leader>ay` | Stage an `@path#L…` reference without embedding code |
