@@ -21,7 +21,12 @@ return {
           { icon = "󰏖 ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
           { icon = "󰊠 ", key = "t", desc = "Ghostty Config", action = ":e ~/.config/ghostty/config" },
-          { icon = "󰑴 ", key = "a", desc = "Spaceman Config", action = ":e ~/Library/Application\\ Support/Spaceman/config.toml" },
+          {
+            icon = "󰑴 ",
+            key = "a",
+            desc = "Spaceman Config",
+            action = ":e ~/Library/Application\\ Support/Spaceman/config.toml",
+          },
           { icon = "󰈆 ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
