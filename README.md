@@ -12,7 +12,7 @@ A personal [LazyVim](https://www.lazyvim.org/)-based Neovim setup focused on Typ
 - **Git:** Gitsigns for hunks and blame, plus CodeDiff for repository diffs and history
 - **Debugging:** DAP with UI, virtual text, and Python/JavaScript adapters
 - **Markdown:** in-buffer rendering with `render-markdown.nvim` and document views with MDEye
-- **AI context:** Herdr integration and reference-aware yanks for coding agents
+- **AI context:** Rex integration and reference-aware yanks for coding agents
 - **Personal plugins:** MDEye and the Jam/YouTube Music integration
 
 ## Requirements
@@ -26,12 +26,11 @@ A personal [LazyVim](https://www.lazyvim.org/)-based Neovim setup focused on Typ
 
 Optional integrations:
 
-- Set `HERDR_ENV=1` when running inside Herdr to enable `herdr-context.nvim`.
 - Set `YOUTUBE_API_KEY` to use the YouTube Music provider in Jam.
+- The Rex integration in `lua/rex/` is active when the `rex` CLI is on `PATH`.
 - Local plugins are enabled only when their directories exist:
   - `~/Development/NVIM/mdeye.nvim`
   - `~/Development/NVIM/jam.nvim`
-  - `~/Development/NVIM/herdr-context.nvim` (also requires `HERDR_ENV=1`)
 
 ## Installation
 
@@ -65,13 +64,19 @@ nvim
 | `<leader>ghr` | Reset the current Git hunk |
 | `<leader>me` | Toggle the MDEye Markdown view |
 | `<leader>mz` | Zoom and pan the image under the MDEye preview cursor (`gz` inside the preview) |
-| `<leader>ac` | Compose Herdr context (stacked agent / message / references / preview) |
-| `<leader>ap` | Prompt Herdr with the current line or Visual selection |
-| `<leader>ay` | Stage an `@path#L…` reference without embedding code |
-| `<leader>aa` | Toggle the Herdr agent drawer |
+| `<leader>ay` | Send an `@path#L…` reference to the Rex agent |
+| `<leader>aY` | Send that reference together with the code |
+| `<leader>ap` | Ask the agent about the current line or Visual selection |
+| `<leader>ad` | Send diagnostics |
+| `<leader>as` | Send the current symbol |
+| `<leader>ah` | Send the current Git hunk |
+| `<leader>aq` | Send the quickfix list |
+| `<leader>al` | Send the location list |
+| `<leader>at` | Pick the target agent (remembered until changed) |
+| `<leader>aa` | Go to the agent pane |
 | `<leader>jm` | Search YouTube Music with Jam |
 
-Inside the Herdr composer: `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` move between stacked panes; `1`–`9` pick a live agent; `<Space>` attaches or detaches a reference; `e` embeds that snippet; `s` stages and `S` / `<C-Enter>` send. Press `?` in the composer for the full key list.
+`lua/rex/` treats Neovim splits and Rex panes as one grid. Rex's `Leader h/j/k/l` (and `Cmd+Alt+arrows`) send `<F13>`–`<F16>` into this Neovim, which move to the split in that direction and hand focus back to Rex at the edge.
 
 Use `<leader>?` to inspect buffer-local mappings and `:LazyExtras` to review enabled LazyVim extras.
 
@@ -81,6 +86,7 @@ Use `<leader>?` to inspect buffer-local mappings and `:LazyExtras` to review ena
 init.lua             Entry point
 lua/config/          Core options, keymaps, autocmds, and lazy.nvim setup
 lua/plugins/         Plugin specs and LazyVim overrides
+lua/rex/             Rex integration: status, split/pane navigation, agent context
 lazyvim.json         Enabled LazyVim extras
 lazy-lock.json       Pinned plugin revisions
 assets/              Dashboard image and helper script

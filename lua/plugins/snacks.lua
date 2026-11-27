@@ -33,6 +33,10 @@ return {
       sections = {
         {
           section = "terminal",
+          -- Snacks uses cwd in the cache key; it can be nil if the directory was deleted.
+          enabled = function()
+            return vim.uv.cwd() ~= nil
+          end,
           cmd = [[paste <(chafa ~/.config/nvim/assets/meh-user-optimized.png --format=symbols --size 35x17 --speed max 2>/dev/null) <(~/.config/nvim/assets/void.sh)]],
           height = 17,
           padding = 1,
